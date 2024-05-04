@@ -8,7 +8,7 @@ from sklearn.ensemble import RandomForestRegressor, GradientBoostingRegressor
 import matplotlib.pyplot as plt
 
 
-path_to_csv = "../Adam_Raslan.csv"
+path_to_csv = "../data/Adam_Raslan_activities.csv"
 
 helper_plot = True
 
@@ -262,7 +262,7 @@ def pretty_print_predictions(dev_predictions, y_dev):
               str(int(seconds)) + " seconds, Actual Pace: " + str(int(pred2)) + " minutes " + str(int(seconds_2)) + " seconds")
 
 def main():
-    file_path = "../Adam_Raslan_activities.csv"
+    file_path = path_to_csv
     df = parse_activities(file_path)
     y_train = df["average_speed"]
     df.drop(columns="average_speed", inplace=True)

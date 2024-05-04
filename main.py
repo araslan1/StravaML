@@ -61,6 +61,9 @@ def write_athlete_data_to_csv(data, csv_file_path, selected_keys):
         for row in data:
             # Extract only the selected keys from each JSON object
             selected_data = {key: row.get(key, '') for key in selected_keys}
+            if (selected_data['average_speed']):
+                selected_data['average_speed'] = 1/selected_data['average_speed']
+                selected_data['average_speed'] = (selected_data['average_speed']/60)*1609.344
             writer.writerow(selected_data)
 
 @app.route("/")
